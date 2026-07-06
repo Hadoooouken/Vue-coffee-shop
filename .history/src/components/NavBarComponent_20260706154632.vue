@@ -1,0 +1,46 @@
+<script>
+export default {
+    data() {
+        return {
+            links: [
+                {
+                    id: 0,
+                    
+                },
+                  {
+                    id: 1
+                    
+                },
+                  {
+                    id: 2
+                },
+                  {
+                    id: 3
+                },
+                  {
+           
+                }
+            ]
+        }
+    }
+}</script>
+
+<template>
+    <header>
+        <ul class="header d-flex justify-content-center justify-content-md-start flex-wrap">
+            <li class="header__item">
+                <RouterLink to="/"> <img src="../assets/logo/Logo.svg" alt="logo">
+                </RouterLink>
+            </li>
+            <li class="header__item">
+                <RouterLink to="/our-coffee">Our coffee</RouterLink>
+            </li>
+            <li class="header__item">
+                <RouterLink to="/goods">For your pleasure</RouterLink>
+            </li>
+            <li class="header__item">
+                <RouterLink to="/contacts">Contact us</RouterLink>
+            </li>
+        </ul>
+    </header>
+</template>

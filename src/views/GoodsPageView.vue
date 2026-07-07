@@ -2,21 +2,24 @@
 import CardComponent from '@/components/Card.vue';
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import coffeeGoods from '../assets/img/good-1.jpg'
+import PageTitleСomponent from '@/components/PageTitleСomponent.vue';
+
 
 
 export default {
 
     components: {
         NavBarComponent,
-        CardComponent
-    }, 
+        CardComponent,
+        PageTitleСomponent
+    },
     data() {
         return {
-            productItems: [
+            goods: [
                 {
                     id: 0,
                     img: coffeeGoods,
-                    title: 'Solimo Coffee Beans 2kg',
+                    name: 'Solimo Coffee Beans 2kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
@@ -24,36 +27,37 @@ export default {
                 {
                     id: 1,
                     img: coffeeGoods,
-                    title: 'Presto Coffee Beans 1kg',
+                    name: 'Presto Coffee Beans 1kg',
                     country: 'Brazil',
                     price: 15.99,
+
                 },
 
                 {
                     id: 2,
                     img: coffeeGoods,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 6.99,
                 },
                 {
                     id: 3,
                     img: coffeeGoods,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
                 {
                     id: 4,
                     img: coffeeGoods,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
                 {
                     id: 5,
                     img: coffeeGoods,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
@@ -76,7 +80,7 @@ export default {
                         <NavBarComponent />
                     </div>
                 </div>
-                <h1 class="title-big">For your pleasure</h1>
+                <PageTitleСomponent pageTitle='For your pleasure' />
             </div>
         </div>
         <section class="shop">
@@ -105,12 +109,18 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
+                            <CardComponent classItem="shop__item" :name="goods[0].name" :price="goods[0].price"
+                                :image="goods[0].img" />
+                            <CardComponent classItem="shop__item" :name="goods[1].name" :price="goods[1].price"
+                                :image="goods[1].img" />
+                            <CardComponent classItem="shop__item" :name="goods[2].name" :price="goods[2].price"
+                                :image="goods[2].img" />
+                            <CardComponent classItem="shop__item" :name="goods[3].name" :price="goods[3].price"
+                                :image="goods[3].img" />
+                            <CardComponent classItem="shop__item" :name="goods[4].name" :price="goods[4].price"
+                                :image="goods[4].img" />
+                            <CardComponent classItem="shop__item" :name="goods[5].name" :price="goods[5].price"
+                                :image="goods[5].img" />
                             <!-- <div class="shop__item">
                                 <img src="../assets/logo/img/good-1.jpg" alt="coffee">
                                 <div class="shop__item-title">

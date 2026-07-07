@@ -4,34 +4,37 @@ import NavBarComponent from '../components/NavBarComponent.vue';
 import coffeeOne from '../assets/img/coffee-1.jpg'
 import coffeeTwo from '../assets/img/coffee-2.jpg'
 import coffeeThree from '../assets/img/coffee-3.jpg'
+import PageTitleСomponent from '@/components/PageTitleСomponent.vue';
+
 
 export default {
     components: {
         CardComponent,
-        NavBarComponent
+        NavBarComponent,
+        PageTitleСomponent
     },
 
     data() {
         return {
-            productItems: [
+            bestSellers: [
                 {
                     id: 0,
                     img: coffeeOne,
-                    title: 'Solimo Coffee Beans 2kg',
+                    name: 'Solimo Coffee Beans 2kg',
                     price: 10.73,
                 },
 
                 {
                     id: 1,
                     img: coffeeTwo,
-                    title: 'Presto Coffee Beans 1kg',
+                    name: 'Presto Coffee Beans 1kg',
                     price: 15.99,
                 },
 
                 {
                     id: 2,
                     img: coffeeThree,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     price: 6.99,
                 },
 
@@ -53,7 +56,8 @@ export default {
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <h1 class="title-big">Everything You Love About Coffee</h1>
+                          <PageTitleСomponent pageTitle="Everything You Love About Coffee"/>
+                       
                         <img class="beanslogo" src="../assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
@@ -91,9 +95,12 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
+                            <CardComponent classItem="best__item" :name="bestSellers[0].name"
+                                :price="bestSellers[0].price" :image="bestSellers[0].img" />
+                            <CardComponent classItem="best__item" :name="bestSellers[1].name"
+                                :price="bestSellers[1].price" :image="bestSellers[1].img" />
+                            <CardComponent classItem="best__item" :name="bestSellers[2].name"
+                                :price="bestSellers[2].price" :image="bestSellers[2].img" />
                         </div>
                     </div>
                 </div>

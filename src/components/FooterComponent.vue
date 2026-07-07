@@ -1,8 +1,11 @@
 <script>
 import logo from '../assets/logo/Logo_black.svg'
+import LinkComonent from "@/components/linkComonent.vue";
 
 export default {
-    logo,
+    components: {
+        LinkComonent
+    },
     data() {
         return {
             logo,
@@ -47,15 +50,9 @@ export default {
                                 <img :src=logo :alt=links[0].icon>
                             </RouterLink>
                         </li>
-                        <li class="footer__item">
-                            <RouterLink :to=links[1].link>{{ links[1].text }}</RouterLink>
-                        </li>
-                        <li class="footer__item">
-                            <RouterLink :to=links[2].link>{{ links[2].text }}</RouterLink>
-                        </li>
-                        <li class="footer__item">
-                            <RouterLink :to=links[3].link>{{ links[3].text }}</RouterLink>
-                        </li>
+                        <LinkComonent class="footer__item" :link="links[1].link" :text="links[1].text" />
+                        <LinkComonent class="footer__item" :link="links[2].link" :text="links[2].text" />
+                        <LinkComonent class="footer__item" :link="links[3].link" :text="links[3].text" />
                     </ul>
                 </div>
             </div>

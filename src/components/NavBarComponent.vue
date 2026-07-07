@@ -1,7 +1,11 @@
 <script>
 import logo from '@/assets/logo/Logo.svg';
-export default {
 
+import LinkComonent from "@/components/linkComonent.vue";
+export default {
+    components: {
+        LinkComonent
+    },
     data() {
         return {
             logo,
@@ -23,7 +27,7 @@ export default {
                 },
                 {
                     id: 3,
-                    text: 'Contact us',
+                    text: 'Contact',
                     link: '/contacts'
 
                 },
@@ -42,15 +46,11 @@ export default {
                 <RouterLink :to=links[0].link> <img :src=logo :alt=links[0].icon>
                 </RouterLink>
             </li>
-            <li class="header__item">
-                <RouterLink :to=links[1].link>{{ links[1].text }}</RouterLink>
-            </li>
-            <li class="header__item">
-                <RouterLink :to=links[2].link>{{ links[2].text }}</RouterLink>
-            </li>
-            <li class="header__item">
-                <RouterLink :to=links[3].link>{{ links[3].text }}</RouterLink>
-            </li>
+            <LinkComonent class="header__item" :link="links[1].link" :text="links[1].text" />
+
+            <LinkComonent class="header__item" :link="links[2].link" :text="links[2].text" />
+
+            <LinkComonent class="header__item" :link="links[3].link" :text="links[3].text" />
         </ul>
     </header>
 </template>

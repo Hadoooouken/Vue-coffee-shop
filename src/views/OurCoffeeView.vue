@@ -3,28 +3,33 @@
 import CardComponent from '@/components/Card.vue';
 import NavBarComponent from '../components/NavBarComponent.vue';
 import coffeeThree from '../assets/img/coffee-3.jpg'
+import coffeeOne from '../assets/img/coffee-1.jpg'
+import coffeeTwo from '../assets/img/coffee-2.jpg'
+import PageTitleСomponent from '@/components/PageTitleСomponent.vue';
+
 
 export default {
-   components: {
+    components: {
         NavBarComponent,
-        CardComponent
-    }, 
+        CardComponent,
+        PageTitleСomponent
+    },
 
     data() {
         return {
-            productItems: [
+            coffee: [
                 {
                     id: 0,
-                    img: coffeeThree,
-                    title: 'Solimo Coffee Beans 2kg',
+                    img: coffeeOne,
+                    name: 'Solimo Coffee Beans 2kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
 
                 {
                     id: 1,
-                    img: coffeeThree,
-                    title: 'Presto Coffee Beans 1kg',
+                    img: coffeeTwo,
+                    name: 'Presto Coffee Beans 1kg',
                     country: 'Brazil',
                     price: 15.99,
                 },
@@ -32,30 +37,32 @@ export default {
                 {
                     id: 2,
                     img: coffeeThree,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 6.99,
                 },
                 {
                     id: 3,
-                    img: coffeeThree,
-                    title: 'AROMISTICO Coffee 1kg',
+                    img: coffeeOne,
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
                 {
                     id: 4,
-                    img: coffeeThree,
-                    title: 'AROMISTICO Coffee 1kg',
+                    img: coffeeTwo,
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 10.73,
+
                 },
                 {
                     id: 5,
                     img: coffeeThree,
-                    title: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 10.73,
+
                 },
 
 
@@ -76,7 +83,8 @@ export default {
 
                     </div>
                 </div>
-                <h1 class="title-big">Our Coffee</h1>
+                <PageTitleСomponent pageTitle='Our Coffee' />
+
             </div>
         </div>
         <section class="shop">
@@ -124,12 +132,18 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
-                            <CardComponent />
+                            <CardComponent classItem="shop__item" :name="coffee[0].name" :price="coffee[0].price"
+                                :image="coffee[0].img" />
+                            <CardComponent classItem="shop__item" :name="coffee[1].name" :price="coffee[1].price"
+                                :image="coffee[1].img" />
+                            <CardComponent classItem="shop__item" :name="coffee[2].name" :price="coffee[2].price"
+                                :image="coffee[2].img" />
+                            <CardComponent classItem="shop__item" :name="coffee[3].name" :price="coffee[3].price"
+                                :image="coffee[3].img" />
+                            <CardComponent classItem="shop__item" :name="coffee[4].name" :price="coffee[4].price"
+                                :image="coffee[4].img" />
+                            <CardComponent classItem="shop__item" :name="coffee[5].name" :price="coffee[5].price"
+                                :image="coffee[5].img" />
                             <!-- <div class="shop__item">
                                 <img src="./img/coffee-3.jpg" alt="coffee">
                                 <div class="shop__item-title">

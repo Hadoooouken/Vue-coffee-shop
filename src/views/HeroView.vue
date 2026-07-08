@@ -56,8 +56,8 @@ export default {
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                          <PageTitleСomponent pageTitle="Everything You Love About Coffee"/>
-                       
+                        <PageTitleСomponent pageTitle="Everything You Love About Coffee" />
+
                         <img class="beanslogo" src="../assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
@@ -95,12 +95,10 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                            <CardComponent classItem="best__item" :name="bestSellers[0].name"
-                                :price="bestSellers[0].price" :image="bestSellers[0].img" />
-                            <CardComponent classItem="best__item" :name="bestSellers[1].name"
-                                :price="bestSellers[1].price" :image="bestSellers[1].img" />
-                            <CardComponent classItem="best__item" :name="bestSellers[2].name"
-                                :price="bestSellers[2].price" :image="bestSellers[2].img" />
+
+                            <CardComponent v-for="bestSeller in bestSellers" :key="bestSeller.id" classItem="best__item"
+                                :name="bestSeller.name" :image="bestSeller.img" :price="bestSeller.price" />
+
                         </div>
                     </div>
                 </div>

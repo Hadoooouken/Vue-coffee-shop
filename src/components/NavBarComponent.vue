@@ -1,40 +1,43 @@
 <script>
 import logo from '@/assets/logo/Logo.svg';
 
-import LinkComonent from "@/components/linkComonent.vue";
+import LinkComponent from "@/components/LinkComponent.vue";
 export default {
     components: {
-        LinkComonent
+        LinkComponent
     },
     data() {
         return {
             logo,
-            links: [
+            links: {
+                header:
                 {
                     id: 0,
                     link: '/',
                     icon: 'Logo.svg'
                 },
-                {
-                    id: 1,
-                    text: 'Our coffee',
-                    link: '/our-coffee'
-                },
-                {
-                    id: 2,
-                    text: 'For your pleasure',
-                    link: '/goods'
-                },
-                {
-                    id: 3,
-                    text: 'Contact',
-                    link: '/contacts'
 
-                },
-                {
+                other: [
 
-                }
-            ]
+                    {
+                        id: 1,
+                        text: 'Our coffee',
+                        link: '/our-coffee'
+                    },
+                    {
+                        id: 2,
+                        text: 'For your pleasure',
+                        link: '/goods'
+                    },
+                    {
+                        id: 3,
+                        text: 'Contact',
+                        link: '/contacts'
+
+                    },
+
+                ]
+            }
         }
     }
 }</script>
@@ -42,15 +45,14 @@ export default {
 <template>
     <header>
         <ul class="header d-flex justify-content-center justify-content-md-start flex-wrap">
-            <li class="header__item">
-                <RouterLink :to=links[0].link> <img :src=logo :alt=links[0].icon>
-                </RouterLink>
-            </li>
-            <LinkComonent class="header__item" :link="links[1].link" :text="links[1].text" />
 
-            <LinkComonent class="header__item" :link="links[2].link" :text="links[2].text" />
+            <LinkComponent class="header__item" :link="links.header.link">
+                <img :src=logo :alt=links.header.link>
+            </LinkComponent>
+            <LinkComponent v-for="link in links.other" :key="link.id" class="header__item" :link="link.link"
+                :text="link.text" />
 
-            <LinkComonent class="header__item" :link="links[3].link" :text="links[3].text" />
+
         </ul>
     </header>
 </template>

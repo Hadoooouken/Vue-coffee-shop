@@ -109,66 +109,10 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <CardComponent classItem="shop__item" :name="goods[0].name" :price="goods[0].price"
-                                :image="goods[0].img" />
-                            <CardComponent classItem="shop__item" :name="goods[1].name" :price="goods[1].price"
-                                :image="goods[1].img" />
-                            <CardComponent classItem="shop__item" :name="goods[2].name" :price="goods[2].price"
-                                :image="goods[2].img" />
-                            <CardComponent classItem="shop__item" :name="goods[3].name" :price="goods[3].price"
-                                :image="goods[3].img" />
-                            <CardComponent classItem="shop__item" :name="goods[4].name" :price="goods[4].price"
-                                :image="goods[4].img" />
-                            <CardComponent classItem="shop__item" :name="goods[5].name" :price="goods[5].price"
-                                :image="goods[5].img" />
-                            <!-- <div class="shop__item">
-                                <img src="../assets/logo/img/good-1.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="../assets/logo/img/good-1.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Presto Coffee Beans 1kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">15.99$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="../assets/logo/img/good-1.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    AROMISTICO Coffee 1kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">6.99$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="../assets/logo/img/good-1.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="../assets/logo/img/good-1.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="../assets/logo/img/good-1.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div> -->
+
+                            <CardComponent v-for="good in goods" :key="good.id" classItem="shop__item" :name="good.name"
+                                :good="good.price" :image="good.img" :price="good.price" />
+
                         </div>
                     </div>
                 </div>

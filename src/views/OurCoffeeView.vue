@@ -17,7 +17,7 @@ export default {
 
     data() {
         return {
-            coffee: [
+            coffees: [
                 {
                     id: 0,
                     img: coffeeOne,
@@ -132,66 +132,9 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <CardComponent classItem="shop__item" :name="coffee[0].name" :price="coffee[0].price"
-                                :image="coffee[0].img" />
-                            <CardComponent classItem="shop__item" :name="coffee[1].name" :price="coffee[1].price"
-                                :image="coffee[1].img" />
-                            <CardComponent classItem="shop__item" :name="coffee[2].name" :price="coffee[2].price"
-                                :image="coffee[2].img" />
-                            <CardComponent classItem="shop__item" :name="coffee[3].name" :price="coffee[3].price"
-                                :image="coffee[3].img" />
-                            <CardComponent classItem="shop__item" :name="coffee[4].name" :price="coffee[4].price"
-                                :image="coffee[4].img" />
-                            <CardComponent classItem="shop__item" :name="coffee[5].name" :price="coffee[5].price"
-                                :image="coffee[5].img" />
-                            <!-- <div class="shop__item">
-                                <img src="./img/coffee-3.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="./img/coffee-3.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Presto Coffee Beans 1kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">15.99$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="./img/coffee-3.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    AROMISTICO Coffee 1kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">6.99$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="./img/coffee-3.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="./img/coffee-3.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div>
-                            <div class="shop__item">
-                                <img src="./img/coffee-3.jpg" alt="coffee">
-                                <div class="shop__item-title">
-                                    Solimo Coffee Beans 2kg
-                                </div>
-                                <div class="shop__item-country">Brazil</div>
-                                <div class="shop__item-price">10.73$</div>
-                            </div> -->
+                            <CardComponent v-for="coffee in coffees" :key="coffee.id" classItem="shop__item"
+                                :name="coffee.name" :image="coffee.img" :price="coffee.price" />
+
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ export default {
 
         text: {
             type: String,
-            required: true
+            required: false
         },
         classItem: {
             type: String
@@ -21,7 +21,7 @@ export default {
 <template>
     <li :class="classItem">
         <RouterLink :to="link">
-            {{ text }}
+            {{ text }}<slot></slot>
         </RouterLink>
     </li>
 </template>

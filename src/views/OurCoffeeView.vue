@@ -2,10 +2,8 @@
 
 import CardComponent from '@/components/Card.vue';
 import NavBarComponent from '../components/NavBarComponent.vue';
-import coffeeThree from '../assets/img/coffee-3.jpg'
-import coffeeOne from '../assets/img/coffee-1.jpg'
-import coffeeTwo from '../assets/img/coffee-2.jpg'
 import PageTitleСomponent from '@/components/PageTitleСomponent.vue';
+
 
 
 export default {
@@ -14,60 +12,10 @@ export default {
         CardComponent,
         PageTitleСomponent
     },
-
-    data() {
-        return {
-            coffees: [
-                {
-                    id: 0,
-                    img: coffeeOne,
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-
-                {
-                    id: 1,
-                    img: coffeeTwo,
-                    name: 'Presto Coffee Beans 1kg',
-                    country: 'Brazil',
-                    price: 15.99,
-                },
-
-                {
-                    id: 2,
-                    img: coffeeThree,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 6.99,
-                },
-                {
-                    id: 3,
-                    img: coffeeOne,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-                {
-                    id: 4,
-                    img: coffeeTwo,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 10.73,
-
-                },
-                {
-                    id: 5,
-                    img: coffeeThree,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 10.73,
-
-                },
-
-
-            ]
-        }
+    computed: {
+        cards() {
+            return this.$store.getters["getCoffeeCards"]
+        },
     }
 }
 </script>
@@ -132,9 +80,8 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <CardComponent v-for="coffee in coffees" :key="coffee.id" classItem="shop__item"
+                            <CardComponent v-for="coffee in cards.coffees" :key="coffee.id" classItem="shop__item"
                                 :name="coffee.name" :image="coffee.img" :price="coffee.price" />
-
                         </div>
                     </div>
                 </div>

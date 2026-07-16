@@ -3,6 +3,7 @@ import FooterComponent from './components/FooterComponent.vue';
 
 
 
+
 </script>
 
 <template>

@@ -13,59 +13,65 @@ export default {
         CardComponent,
         PageTitleСomponent
     },
-    data() {
-        return {
-            goods: [
-                {
-                    id: 0,
-                    img: coffeeGoods,
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
 
-                {
-                    id: 1,
-                    img: coffeeGoods,
-                    name: 'Presto Coffee Beans 1kg',
-                    country: 'Brazil',
-                    price: 15.99,
-
-                },
-
-                {
-                    id: 2,
-                    img: coffeeGoods,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 6.99,
-                },
-                {
-                    id: 3,
-                    img: coffeeGoods,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-                {
-                    id: 4,
-                    img: coffeeGoods,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-                {
-                    id: 5,
-                    img: coffeeGoods,
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-
-
-            ]
-        }
+    computed: {
+        cards() {
+            return this.$store.getters["getGoodsCoffeeCards"]
+        },
     }
+    // data() {
+    //     return {
+    //         goods: [
+    //             {
+    //                 id: 0,
+    //                 img: coffeeGoods,
+    //                 name: 'Solimo Coffee Beans 2kg',
+    //                 country: 'Brazil',
+    //                 price: 10.73,
+    //             },
+
+    //             {
+    //                 id: 1,
+    //                 img: coffeeGoods,
+    //                 name: 'Presto Coffee Beans 1kg',
+    //                 country: 'Brazil',
+    //                 price: 15.99,
+
+    //             },
+
+    //             {
+    //                 id: 2,
+    //                 img: coffeeGoods,
+    //                 name: 'AROMISTICO Coffee 1kg',
+    //                 country: 'Brazil',
+    //                 price: 6.99,
+    //             },
+    //             {
+    //                 id: 3,
+    //                 img: coffeeGoods,
+    //                 name: 'AROMISTICO Coffee 1kg',
+    //                 country: 'Brazil',
+    //                 price: 10.73,
+    //             },
+    //             {
+    //                 id: 4,
+    //                 img: coffeeGoods,
+    //                 name: 'AROMISTICO Coffee 1kg',
+    //                 country: 'Brazil',
+    //                 price: 10.73,
+    //             },
+    //             {
+    //                 id: 5,
+    //                 img: coffeeGoods,
+    //                 name: 'AROMISTICO Coffee 1kg',
+    //                 country: 'Brazil',
+    //                 price: 10.73,
+    //             },
+
+
+    //         ]
+    //     }
+    // }
 }
 
 
@@ -110,8 +116,8 @@ export default {
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
 
-                            <CardComponent v-for="good in goods" :key="good.id" classItem="shop__item" :name="good.name"
-                                :good="good.price" :image="good.img" :price="good.price" />
+                            <CardComponent v-for="good in cards.goods" :key="good.id" classItem="shop__item"
+                                :name="good.name" :good="good.price" :image="good.img" :price="good.price" />
 
                         </div>
                     </div>

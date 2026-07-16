@@ -2,44 +2,22 @@
 import logo from '@/assets/logo/Logo.svg';
 
 import LinkComponent from "@/components/LinkComponent.vue";
+
 export default {
-    components: {
-        LinkComponent
-    },
+
     data() {
         return {
             logo,
-            links: {
-                header:
-                {
-                    id: 0,
-                    link: '/',
-                    icon: 'Logo.svg'
-                },
-
-                other: [
-
-                    {
-                        id: 1,
-                        text: 'Our coffee',
-                        link: '/our-coffee'
-                    },
-                    {
-                        id: 2,
-                        text: 'For your pleasure',
-                        link: '/goods'
-                    },
-                    {
-                        id: 3,
-                        text: 'Contact',
-                        link: '/contacts'
-
-                    },
-
-                ]
-            }
         }
-    }
+    },
+    components: {
+        LinkComponent
+    },
+    computed: {
+        links() {
+            return this.$store.getters["getHeaderLinks"]
+        }
+    },
 }</script>
 
 <template>

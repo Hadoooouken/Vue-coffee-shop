@@ -5,6 +5,7 @@ import OurCoffeeView from '@/views/OurCoffeeView.vue';
 import GoodsPageView from '@/views/GoodsPageView.vue';
 import ContactsPageView from '@/views/ContactsPageView.vue';
 import ThanksPageView from '@/views/ThanksPageView.vue';
+import CoffeeItemPage from '../views/CoffeeItemPage.vue';
 
 const routes = [
   { path: '/', component: HeroView },
@@ -12,6 +13,8 @@ const routes = [
   { path: '/goods', component: GoodsPageView },
   { path: '/contacts', component: ContactsPageView },
   { path: '/thanks', component: ThanksPageView },
+  { name: 'coffee', path: '/our-coffee/:id', component: CoffeeItemPage },
+  { name: 'goods', path: '/goods/item/:id', component: CoffeeItemPage },
 ];
 
 const router = createRouter({

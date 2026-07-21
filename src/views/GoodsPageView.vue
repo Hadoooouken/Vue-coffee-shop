@@ -1,8 +1,9 @@
 <script>
 import CardComponent from '@/components/Card.vue';
 import NavBarComponent from '@/components/NavBarComponent.vue';
-import coffeeGoods from '../assets/img/good-1.jpg'
+
 import PageTitleСomponent from '@/components/PageTitleСomponent.vue';
+import { navigate } from '@/mixins/navigate';
 
 
 
@@ -18,60 +19,15 @@ export default {
         cards() {
             return this.$store.getters["getGoodsCoffeeCards"]
         },
-    }
-    // data() {
-    //     return {
-    //         goods: [
-    //             {
-    //                 id: 0,
-    //                 img: coffeeGoods,
-    //                 name: 'Solimo Coffee Beans 2kg',
-    //                 country: 'Brazil',
-    //                 price: 10.73,
-    //             },
+    },
+        data() {
+        return {
+            name: 'goods'
+        }
+    },
 
-    //             {
-    //                 id: 1,
-    //                 img: coffeeGoods,
-    //                 name: 'Presto Coffee Beans 1kg',
-    //                 country: 'Brazil',
-    //                 price: 15.99,
+      mixins : [navigate]
 
-    //             },
-
-    //             {
-    //                 id: 2,
-    //                 img: coffeeGoods,
-    //                 name: 'AROMISTICO Coffee 1kg',
-    //                 country: 'Brazil',
-    //                 price: 6.99,
-    //             },
-    //             {
-    //                 id: 3,
-    //                 img: coffeeGoods,
-    //                 name: 'AROMISTICO Coffee 1kg',
-    //                 country: 'Brazil',
-    //                 price: 10.73,
-    //             },
-    //             {
-    //                 id: 4,
-    //                 img: coffeeGoods,
-    //                 name: 'AROMISTICO Coffee 1kg',
-    //                 country: 'Brazil',
-    //                 price: 10.73,
-    //             },
-    //             {
-    //                 id: 5,
-    //                 img: coffeeGoods,
-    //                 name: 'AROMISTICO Coffee 1kg',
-    //                 country: 'Brazil',
-    //                 price: 10.73,
-    //             },
-
-
-    //         ]
-    //     }
-    // }
 }
 
 
@@ -117,7 +73,7 @@ export default {
                         <div class="shop__wrapper">
 
                             <CardComponent v-for="good in cards.goods" :key="good.id" classItem="shop__item"
-                                :name="good.name" :good="good.price" :image="good.img" :price="good.price" />
+                                :card="good" @onNavigate="navigate" />
 
                         </div>
                     </div>

@@ -110,8 +110,7 @@ export default {
                         <div class="best__wrapper">
 
                             <CardComponent v-for="bestSeller in cards.bestSellers" :key="bestSeller.id"
-                                classItem="best__item" :name="bestSeller.name" :image="bestSeller.img"
-                                :price="bestSeller.price" />
+                                classItem="best__item"   :card="bestSeller"  />
 
                         </div>
                     </div>

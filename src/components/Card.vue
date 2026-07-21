@@ -1,33 +1,33 @@
 <script>
 export default {
     props: {
-        name: {
-            type: String,
-            required: true
-        },
-        price: {
-            type: Number,
-            required: true
-        },
-        image: {
-            type: String,
-            required: true
-        },
+
         classItem: {
             type: String,
             required: false
+        },
+
+        card: {
+            type: Object,
+            required: true
         }
 
+    },
+    methods: {
+        onEmit(id) {
+          
+            this.$emit('onNavigate', id)
+        }
     }
 }
 </script>
 
 <template>
-    <div :class="classItem">
-        <img :src="image" :alt="image">
+    <div :class="classItem" @click="onEmit(card.id)">
+        <img :src="card.img" :alt="card.img">
         <div class="best__item-title">
-            {{ name }}
+            {{ card.name }}
         </div>
-        <div class="best__item-price">{{ price }}$</div>
+        <div class="best__item-price">{{ card.price }}$</div>
     </div>
 </template>

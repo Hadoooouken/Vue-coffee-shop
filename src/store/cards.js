@@ -1,7 +1,7 @@
 import coffeeThree from '../assets/img/coffee-3.jpg';
 import coffeeOne from '../assets/img/coffee-1.jpg';
 import coffeeTwo from '../assets/img/coffee-2.jpg';
-import coffeeGoods from '../assets/img/good-1.jpg'
+import coffeeGoods from '../assets/img/good-1.jpg';
 
 const cards = {
   state: {
@@ -130,6 +130,24 @@ const cards = {
     getGoodsCoffeeCards(state) {
       return { goods: state.goods };
     },
+
+    getCoffeeById(state) {
+      return (id) => {
+        return state.coffees.find((card) => card.id === +id);
+      };
+    },
+
+    getGoodsById(state) {
+      return (id) => {
+        return state.goods.find((card) => card.id === +id);
+      };
+    },
+
+    // getProductById(state) {
+    //   return (id) => {
+    //     return state.coffees.find((card) => card.id === +id);
+    //   };
+    // },
   },
 };
 

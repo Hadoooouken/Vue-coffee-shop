@@ -3,6 +3,7 @@
 import CardComponent from '@/components/Card.vue';
 import NavBarComponent from '../components/NavBarComponent.vue';
 import PageTitleСomponent from '@/components/PageTitleСomponent.vue';
+import { navigate } from '@/mixins/navigate.js';
 
 
 
@@ -16,7 +17,18 @@ export default {
         cards() {
             return this.$store.getters["getCoffeeCards"]
         },
-    }
+    },
+
+    data() {
+        return {
+            name: 'coffee'
+        }
+    },
+
+    mixins : [navigate]
+        
+
+
 }
 </script>
 <template>
@@ -81,7 +93,8 @@ export default {
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
                             <CardComponent v-for="coffee in cards.coffees" :key="coffee.id" classItem="shop__item"
-                                :name="coffee.name" :image="coffee.img" :price="coffee.price" />
+                                :card="coffee" @onNavigate="navigate" />
+                            <!-- '/our-coffee/item' -->
                         </div>
                     </div>
                 </div>

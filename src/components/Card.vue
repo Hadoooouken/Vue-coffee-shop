@@ -18,16 +18,17 @@ export default {
           
             this.$emit('onNavigate', id)
         }
-    }
+    },
+ 
 }
 </script>
 
 <template>
     <div :class="classItem" @click="onEmit(card.id)">
-        <img :src="card.img" :alt="card.img">
+        <img :src="card.image" :alt="card.img">
         <div class="best__item-title">
             {{ card.name }}
         </div>
-        <div class="best__item-price">{{ card.price }}$</div>
+        <div class="best__item-price">{{ card.price }}</div>
     </div>
 </template>

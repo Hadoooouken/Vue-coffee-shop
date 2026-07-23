@@ -120,6 +120,34 @@ const cards = {
       },
     ],
   },
+
+  mutations: {
+    setCoffeeData(state, data) {
+      state.coffees = data;
+    },
+    setGoodsData(state, data) {
+      state.goods = data;
+    },
+    setBestSellersData(state, data) {
+      state.bestSellers = data;
+    },
+  },
+
+  actions: {
+    setCoffeeData({ commit }, data) {
+      commit('setCoffeeData', data);
+      console.log(data);
+    },
+    setGoodsData({ commit }, data) {
+      commit('setGoodsData', data);
+      console.log(data);
+    },
+    setBestSellersData({ commit }, data) {
+      commit('setBestSellersData', data);
+      console.log(data);
+    },
+  },
+
   getters: {
     getCoffeeCards(state) {
       return { coffees: state.coffees };
@@ -142,12 +170,6 @@ const cards = {
         return state.goods.find((card) => card.id === +id);
       };
     },
-
-    // getProductById(state) {
-    //   return (id) => {
-    //     return state.coffees.find((card) => card.id === +id);
-    //   };
-    // },
   },
 };
 

@@ -25,8 +25,15 @@ export default {
         }
     },
 
-    mixins : [navigate]
-        
+    mixins: [navigate],
+    mounted() {
+        fetch('http://localhost:3000/coffee')
+            .then((res) => res.json())
+            .then((data) => {
+                this.$store.dispatch("setCoffeeData", data)
+            })
+    }
+
 
 
 }
@@ -94,7 +101,6 @@ export default {
                         <div class="shop__wrapper">
                             <CardComponent v-for="coffee in cards.coffees" :key="coffee.id" classItem="shop__item"
                                 :card="coffee" @onNavigate="navigate" />
-                            <!-- '/our-coffee/item' -->
                         </div>
                     </div>
                 </div>

@@ -18,34 +18,6 @@ export default {
         },
     },
 
-    // data() {
-    //     return {
-    //         bestSellers: [
-    //             {
-    //                 id: 0,
-    //                 img: coffeeOne,
-    //                 name: 'Solimo Coffee Beans 2kg',
-    //                 price: 10.73,
-    //             },
-
-    //             {
-    //                 id: 1,
-    //                 img: coffeeTwo,
-    //                 name: 'Presto Coffee Beans 1kg',
-    //                 price: 15.99,
-    //             },
-
-    //             {
-    //                 id: 2,
-    //                 img: coffeeThree,
-    //                 name: 'AROMISTICO Coffee 1kg',
-    //                 price: 6.99,
-    //             },
-
-    //         ]
-    //     }
-    // },
-
     methods: {
         smoothScroll() {
             this.$refs.best.scrollIntoView({
@@ -54,6 +26,14 @@ export default {
             })
         },
     },
+
+    mounted() {
+        fetch('http://localhost:3000/bestsellers')
+            .then((res) => res.json())
+            .then((data) => {
+                this.$store.dispatch("setBestSellersData", data)
+            })
+    }
 }
 </script>
 
@@ -110,7 +90,7 @@ export default {
                         <div class="best__wrapper">
 
                             <CardComponent v-for="bestSeller in cards.bestSellers" :key="bestSeller.id"
-                                classItem="best__item"   :card="bestSeller"  />
+                                classItem="best__item" :card="bestSeller" />
 
                         </div>
                     </div>

@@ -17,6 +17,16 @@ export default {
         cards() {
             return this.$store.getters["getCoffeeCards"]
         },
+
+        searchValue: {
+            set(value) {
+                this.$store.dispatch("setSearchValue", value)
+            },
+
+            get() {
+                return this.$store.getters["getSearchValue"]
+            }
+        }
     },
 
     data() {
@@ -32,6 +42,16 @@ export default {
             .then((data) => {
                 this.$store.dispatch("setCoffeeData", data)
             })
+    },
+
+    methods: {
+        onSort(value) {
+            this.$store.dispatch("setSortValue", value)
+        },
+        resetFilter() {
+            this.$store.dispatch('setSearchValue', '');
+            this.$store.dispatch('setSortValue', '');
+        }
     }
 
 
@@ -79,19 +99,20 @@ export default {
                     <div class="col-lg-4 offset-2">
                         <form action="#" class="shop__search">
                             <label class="shop__search-label" for="filter">Looking for</label>
-                            <input id="filter" type="text" placeholder="start typing here..."
-                                class="shop__search-input">
+                            <input id="filter" type="text" placeholder="start typing here..." class="shop__search-input"
+                                v-model="searchValue">
+                            {{ searchValue }}
                         </form>
                     </div>
                     <div class="col-lg-4">
                         <div class="shop__filter">
-                            <div class="shop__filter-label">
+                            <div class="shop__filter-label" @click="resetFilter">
                                 Or filter
                             </div>
                             <div class="shop__filter-group">
-                                <button class="shop__filter-btn">Brazil</button>
-                                <button class="shop__filter-btn">Kenya</button>
-                                <button class="shop__filter-btn">Columbia</button>
+                                <button class="shop__filter-btn" @click="onSort('Brazil')">Brazil</button>
+                                <button class="shop__filter-btn" @click="onSort('Kenya')">Kenya</button>
+                                <button class="shop__filter-btn" @click="onSort('Columbia')">Columbia</button>
                             </div>
                         </div>
                     </div>
@@ -99,8 +120,8 @@ export default {
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <CardComponent v-for="coffee in cards.coffees" :key="coffee.id" classItem="shop__item"
-                                :card="coffee" @onNavigate="navigate" />
+                            <CardComponent v-for="coffee in cards" :key="coffee.id" :card="coffee"
+                                classItem="shop__item" @onNavigate="navigate" />
                         </div>
                     </div>
                 </div>

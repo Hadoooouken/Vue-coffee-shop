@@ -89,7 +89,7 @@ export default {
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
 
-                            <CardComponent v-for="bestSeller in cards.bestSellers" :key="bestSeller.id"
+                            <CardComponent v-for="bestSeller in cards" :key="bestSeller.id"
                                 classItem="best__item" :card="bestSeller" />
 
                         </div>

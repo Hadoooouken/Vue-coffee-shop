@@ -79,7 +79,7 @@ export default {
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
 
-                            <CardComponent v-for="good in cards.goods" :key="good.id" classItem="shop__item"
+                            <CardComponent v-for="good in cards" :key="good.id" classItem="shop__item"
                                 :card="good" @onNavigate="navigate" />
 
                         </div>
